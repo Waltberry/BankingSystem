@@ -1,0 +1,49 @@
+﻿@page
+@model Banking.Web.Pages.IndexModel
+@{
+    ViewData["Title"] = "Banking Dashboard";
+}
+
+<h2>Banking Dashboard</h2>
+
+<form method="post" asp-page-handler="Create">
+    <h3>Create Account</h3>
+    <label>Account #</label><br />
+    <input name="AccountNumber" /><br />
+    <label>Owner Name</label><br />
+    <input name="OwnerName" /><br />
+    <label>Opening Balance</label><br />
+    <input name="OpeningBalance" /><br />
+    <button type="submit">Create</button>
+</form>
+
+<hr />
+
+<form method="post" asp-page-handler="Deposit">
+    <h3>Deposit</h3>
+    <label>Account #</label><br />
+    <input name="AccountNumber" /><br />
+    <label>Amount</label><br />
+    <input name="Amount" /><br />
+    <button type="submit">Deposit</button>
+</form>
+
+<hr />
+
+<form method="post" asp-page-handler="Transfer">
+    <h3>Transfer</h3>
+    <label>From Account #</label><br />
+    <input name="FromAccountNumber" /><br />
+    <label>To Account #</label><br />
+    <input name="ToAccountNumber" /><br />
+    <label>Amount</label><br />
+    <input name="Amount" /><br />
+    <button type="submit">Transfer</button>
+</form>
+
+<hr />
+
+@if (!string.IsNullOrWhiteSpace(Model.Message))
+{
+    <p><b>@Model.Message</b></p>
+}
